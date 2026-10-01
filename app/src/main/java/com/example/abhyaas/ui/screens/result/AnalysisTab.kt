@@ -47,13 +47,14 @@ fun AnalysisTab(
     var selectedCategory by rememberSaveable { mutableStateOf("General") }
     var isCategoryDropdownOpen by remember { mutableStateOf(false) }
 
+    val max = testResult.totalMarks
     val cutoffText = when (selectedCategory) {
-        "General" -> "Cut off: 132-135"
-        "OBC" -> "Cut off: 128-132"
-        "SC" -> "Cut off: 115-120"
-        "ST" -> "Cut off: 108-112"
-        "EWS" -> "Cut off: 125-130"
-        else -> "Cut off: 132-135"
+        "General" -> "Cut off: ${(max * 0.66).toInt()}-${(max * 0.68).toInt()}"
+        "OBC" -> "Cut off: ${(max * 0.64).toInt()}-${(max * 0.66).toInt()}"
+        "SC" -> "Cut off: ${(max * 0.57).toInt()}-${(max * 0.60).toInt()}"
+        "ST" -> "Cut off: ${(max * 0.54).toInt()}-${(max * 0.56).toInt()}"
+        "EWS" -> "Cut off: ${(max * 0.62).toInt()}-${(max * 0.65).toInt()}"
+        else -> "Cut off: ${(max * 0.66).toInt()}-${(max * 0.68).toInt()}"
     }
 
     val scrollState = rememberScrollState()
@@ -274,7 +275,7 @@ fun AnalysisTab(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Average Score: ${testResult.averageScore}   |   Best Score: ${testResult.bestScore.toInt()}",
+                        text = "Average Score: ${"%.1f".format(testResult.averageScore)}   |   Best Score: ${testResult.bestScore.toInt()}",
                         fontSize = 13.sp,
                         fontWeight = FontWeight.Medium,
                         color = Color(0xFF94A3B8)
@@ -330,7 +331,7 @@ fun AnalysisTab(
                     }
 
                     Text(
-                        text = "${testResult.percentile} %",
+                        text = "${"%.1f".format(testResult.percentile)} %",
                         fontSize = 17.sp,
                         fontWeight = FontWeight.ExtraBold,
                         color = Color.White
