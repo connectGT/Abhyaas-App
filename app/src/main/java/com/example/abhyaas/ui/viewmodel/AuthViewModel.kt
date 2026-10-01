@@ -1,8 +1,15 @@
 package com.example.abhyaas.ui.viewmodel
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
@@ -15,16 +22,96 @@ data class AuthUiState(
     val isLoading: Boolean = false,
     val error: String? = null,
     val isOtpSent: Boolean = false,
-    val phoneNumber: String = ""
+    val phoneNumber: String = "",
+    val currentUser: FirebaseUser? = null
 )
 
 class AuthViewModel : ViewModel() {
     private val auth = FirebaseAuth.getInstance()
     private var verificationId: String? = null
 
-    private val _uiState = MutableStateFlow(AuthUiState())
+    private val _uiState = MutableStateFlow(AuthUiState(currentUser = auth.currentUser))
     val uiState: StateFlow<AuthUiState> = _uiState.asStateFlow()
 
+    init {
+        auth.addAuthStateListener { firebaseAuth ->
+            _uiState.value = _uiState.value.copy(currentUser = firebaseAuth.currentUser)
+        }
+    }
+
+    // ==========================================
+    // Email / Password Auth
+    // ==========================================
+    fun signUpWithEmail(email: String, password: String, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        _uiState.value = _uiState.value.copy(isLoading = true, error = null)
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                _uiState.value = _uiState.value.copy(isLoading = false)
+                onSuccess()
+            }
+            .addOnFailureListener {
+                _uiState.value = _uiState.value.copy(isLoading = false, error = it.message)
+                onError(it.message ?: "Sign-up failed")
+            }
+    }
+
+    fun signInWithEmail(email: String, password: String, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        _uiState.value = _uiState.value.copy(isLoading = true, error = null)
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                _uiState.value = _uiState.value.copy(isLoading = false)
+                onSuccess()
+            }
+            .addOnFailureListener {
+                _uiState.value = _uiState.value.copy(isLoading = false, error = it.message)
+                onError(it.message ?: "Sign-in failed")
+            }
+    }
+
+    // ==========================================
+    // Google Sign-In Auth
+    // ==========================================
+    fun getGoogleSignInIntent(context: Context): Intent {
+        // TODO: Replace with actual Web Client ID from google-services.json when Google Sign-in is enabled
+        val serverClientId = "YOUR_WEB_CLIENT_ID"
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(serverClientId)
+            .requestEmail()
+            .build()
+        val googleSignInClient: GoogleSignInClient = GoogleSignIn.getClient(context, gso)
+        return googleSignInClient.signInIntent
+    }
+
+    fun handleGoogleSignInResult(data: Intent?, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        _uiState.value = _uiState.value.copy(isLoading = true, error = null)
+        try {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val account = task.getResult(com.google.android.gms.common.api.ApiException::class.java)
+            val idToken = account?.idToken
+            if (idToken != null) {
+                val credential = GoogleAuthProvider.getCredential(idToken, null)
+                auth.signInWithCredential(credential)
+                    .addOnSuccessListener {
+                        _uiState.value = _uiState.value.copy(isLoading = false)
+                        onSuccess()
+                    }
+                    .addOnFailureListener {
+                        _uiState.value = _uiState.value.copy(isLoading = false, error = it.message)
+                        onError(it.message ?: "Google Sign-In failed")
+                    }
+            } else {
+                _uiState.value = _uiState.value.copy(isLoading = false, error = "Google ID token is null")
+                onError("Google ID token is null")
+            }
+        } catch (e: Exception) {
+            _uiState.value = _uiState.value.copy(isLoading = false, error = e.message)
+            onError(e.message ?: "Google Sign-In failed")
+        }
+    }
+
+    // ==========================================
+    // Phone OTP Auth (Existing)
+    // ==========================================
     fun sendOtp(
         phoneNumber: String,
         activity: Activity,
@@ -73,10 +160,17 @@ class AuthViewModel : ViewModel() {
         onError: (String) -> Unit
     ) {
         auth.signInWithCredential(credential)
-            .addOnSuccessListener { _uiState.value = _uiState.value.copy(isLoading = false); onSuccess?.invoke() }
-            .addOnFailureListener { _uiState.value = _uiState.value.copy(isLoading = false, error = it.message); onError(it.message ?: "Sign-in failed") }
+            .addOnSuccessListener { 
+                _uiState.value = _uiState.value.copy(isLoading = false)
+                onSuccess?.invoke() 
+            }
+            .addOnFailureListener { 
+                _uiState.value = _uiState.value.copy(isLoading = false, error = it.message)
+                onError(it.message ?: "Sign-in failed") 
+            }
     }
 
     fun isUserLoggedIn(): Boolean = auth.currentUser != null
     fun signOut() = auth.signOut()
+    fun getCurrentUser() = auth.currentUser
 }
