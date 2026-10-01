@@ -1,0 +1,144 @@
+﻿Reusing configuration cache.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:generateDebugRFile UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+
+> Task :app:compileDebugUnitTestKotlin
+.\gradlew : e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_
+challenge/Milestone1DataIntegrityEmpiricalTest.kt:138:44 Unresolved reference 'getQuestionById'.
+At line:1 char:1
++ .\gradlew compileDebugUnitTestKotlin --console=plain 2>&1 | Out-File  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (e: file:///C:/U...tQuestionById'.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:140:73 Unresolved reference 'id'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:144:80 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:145:87 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:146:82 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:147:84 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:360:41 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:361:23 Unresolved reference 'statementText'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:362:58 Unresolved reference 'topic'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:363:28 Unresolved reference 'correctOptionIndex'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:364:41 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:364:44 Unresolved reference 'options'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:364:55 Unresolved reference 'text'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:365:26 Unresolved reference 'directionText'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:366:26 Unresolved reference 'directionTextHindi'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:369:41 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:370:23 Unresolved reference 'statementText'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:371:28 Unresolved reference 'correctOptionIndex'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:372:29 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:372:32 Unresolved reference 'options'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:372:43 Unresolved reference 'text'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:375:42 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:376:24 Unresolved reference 'statementText'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:377:29 Unresolved reference 'correctOptionIndex'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:378:33 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:378:37 Unresolved reference 'options'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:378:48 Unresolved reference 'text'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:381:42 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:382:24 Unresolved reference 'statementText'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:383:29 Unresolved reference 'correctOptionIndex'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:384:37 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:384:41 Unresolved reference 'options'.
+
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:384:52 Unresolved reference 'text'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:387:42 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:388:24 Unresolved reference 'statementText'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:389:29 Unresolved reference 'correctOptionIndex'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:390:32 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:390:36 Unresolved reference 'options'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:390:47 Unresolved reference 'text'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:393:43 Unresolved reference 'getQuestionById'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:394:25 Unresolved reference 'statementText'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:395:30 Unresolved reference 'correctOptionIndex'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:396:67 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:396:72 Unresolved reference 'options'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/m1_empirical_challenge/Mi
+lestone1DataIntegrityEmpiricalTest.kt:396:83 Unresolved reference 'text'.
+e: file:///C:/Users/gurut/AndroidStudioProjects/Abhyaas/app/src/test/java/com/example/abhyaas/tier2_boundary/Milestone1
+UiChallengeTest.kt:339:41 Unresolved reference 'getQuestionById'.
+> Task :app:compileDebugUnitTestKotlin FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugUnitTestKotlin' (registered by plugin 'com.android.internal.application').
+> A failure occurred while executing 
+org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+21 actionable tasks: 1 executed, 20 up-to-date
+Configuration cache entry reused.
