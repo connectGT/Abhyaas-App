@@ -34,30 +34,27 @@ import com.example.abhyaas.ui.screens.main.EmptyStateScreen
 import com.example.abhyaas.ui.screens.pass.PassScreen
 import com.example.abhyaas.ui.theme.*
 
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.abhyaas.ui.viewmodel.AuthViewModel
+
 @Composable
 fun AppNavHost(
     navController: NavHostController,
-    startDestination: String = Screen.Main.route
+    authViewModel: AuthViewModel = viewModel()
 ) {
+    val startDest = if (authViewModel.isUserLoggedIn()) Screen.Main.route else Screen.Login.route
+
     NavHost(
         navController = navController,
-        startDestination = startDestination
+        startDestination = startDest
     ) {
         // 1. Authentication & Onboarding
         composable(Screen.Login.route) {
             LoginScreen(
-                onContinueClick = {
-                    // Goes to UserSetting for profile setup first time
-                    navController.navigate(Screen.UserSetting.route)
-                },
-                onUseAnotherMethod = {
-                    // Skip directly to main (guest/alternative login)
+                onLoginSuccess = {
                     navController.navigate(Screen.Main.route) {
-                        popUpTo(Screen.Login.route) { inclusive = true }
+                        popUpTo(0) { inclusive = true }
                     }
-                },
-                onPrivacyPolicyClick = {
-                    navController.navigate(Screen.PrivacyPolicy.route)
                 }
             )
         }
