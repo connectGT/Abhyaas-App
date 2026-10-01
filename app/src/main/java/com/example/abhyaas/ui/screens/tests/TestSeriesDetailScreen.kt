@@ -128,7 +128,7 @@ fun TestSeriesDetailScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = {},) {
+                    IconButton(onClick = onBackClick,) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
@@ -137,7 +137,7 @@ fun TestSeriesDetailScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = {},) {
+                    IconButton(onClick = onBackClick,) {
                         Icon(
                             imageVector = Icons.Default.Campaign,
                             contentDescription = "Announcements",
@@ -612,3 +612,7 @@ private fun MetricItem(
         }
     }
 }
+
+
+
+

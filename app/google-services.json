@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "000000000000",
-    "project_id": "abhyaas-placeholder",
-    "storage_bucket": "abhyaas-placeholder.appspot.com"
+    "project_number": "334361444733",
+    "project_id": "abhyaas-2026",
+    "storage_bucket": "abhyaas-2026.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
+        "mobilesdk_app_id": "1:334361444733:android:1fa0be6654cb3614264c14",
         "android_client_info": {
           "package_name": "com.example.abhyaas"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "334361444733-80luu51rq4m0lku0chcfg78q230je8h2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "placeholder_api_key"
+          "current_key": "AIzaSyCZEC0NDH1zNzxJ6LUqyNZoWzNGjO43AM0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334361444733-80luu51rq4m0lku0chcfg78q230je8h2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

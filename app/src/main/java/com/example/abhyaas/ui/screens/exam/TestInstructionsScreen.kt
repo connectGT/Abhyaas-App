@@ -65,7 +65,7 @@ fun TestInstructionsScreen(
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = {},) {
+                    IconButton(onClick = onBackClick,) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
@@ -195,8 +195,7 @@ fun TestInstructionsScreen(
                     }
 
                     Button(
-                        onClick = {},
-                        shape = RoundedCornerShape(6.dp),
+                        onClick = { onAgreeAndContinue(testId, selectedLanguage) }, shape = RoundedCornerShape(6.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = CtaGreen,
                             contentColor = Color.White
@@ -360,3 +359,6 @@ fun TestInstructionsScreen(
         )
     }
 }
+
+
+

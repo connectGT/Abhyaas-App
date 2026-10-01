@@ -83,8 +83,7 @@ fun TestListScreen(
                         )
                     }
                 },
-                navigationIcon = {
-                    IconButton(onClick = {},) {
+                navigationIcon = { IconButton(onClick = onBackClick,) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
@@ -466,3 +465,4 @@ private fun AttemptedTestCard(
         }
     }
 }
+

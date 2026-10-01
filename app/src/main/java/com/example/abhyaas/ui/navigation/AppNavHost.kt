@@ -3,8 +3,6 @@ package com.example.abhyaas.ui.navigation
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -227,7 +225,7 @@ fun AppNavHost(
                 onBackClick = { navController.popBackStack() },
                 onSubmitTest = { tId ->
                     navController.navigate(Screen.TestResult.createRoute(tId)) {
-                        popUpTo(Screen.ActiveTest.createRoute(tId)) { inclusive = true }
+                        popUpTo(Screen.TestInstructions.createRoute(tId)) { inclusive = true }
                     }
                 }
             )
@@ -248,82 +246,6 @@ fun AppNavHost(
                     }
                 }
             )
-        }
-    }
-}
-
-@Composable
-private fun MilestonePlaceholderScreen(
-    title: String,
-    subtitle: String,
-    description: String,
-    actionLabel: String,
-    onAction: () -> Unit,
-    onBack: () -> Unit
-) {
-    Scaffold(
-        topBar = {
-            CommonTopAppBar(
-                title = title,
-                subtitle = subtitle,
-                navIconType = NavIconType.Back,
-                onNavClick = onBack,
-                containerColor = DarkBackgroundGradientStart
-            )
-        },
-        containerColor = DarkBackground
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(AppBackgroundBrush)
-                .padding(innerPadding)
-                .padding(24.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = DarkSurface),
-                border = androidx.compose.foundation.BorderStroke(1.dp, DarkBorder)
-            ) {
-                Column(
-                    modifier = Modifier.padding(20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = title,
-                        color = Color.White,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = subtitle,
-                        color = BrandAccentCyan,
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.Medium
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Text(
-                        text = description,
-                        color = TextSecondaryDark,
-                        fontSize = 13.sp,
-                        lineHeight = 18.sp,
-                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
-                    )
-                    Spacer(modifier = Modifier.height(20.dp))
-                    Button(
-                        onClick = onAction,
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(10.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = BrandPrimary)
-                    ) {
-                        Text(actionLabel, fontWeight = FontWeight.Bold, fontSize = 14.sp)
-                    }
-                }
-            }
         }
     }
 }
