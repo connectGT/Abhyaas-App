@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.example.abhyaas.AbhyaasApplication
 import com.example.abhyaas.data.model.Test
 import com.example.abhyaas.data.model.defaultTestInstructions
+import com.example.abhyaas.data.model.defaultTestInstructionsHindi
 import com.example.abhyaas.ui.theme.*
 
 /**
@@ -137,7 +138,7 @@ fun TestInstructionsScreen(
                     )
                 ) {
                     Text(
-                        text = "Agree and Continue",
+                        text = if (selectedLanguage == "Hindi") "सहमत हूँ और आगे बढ़ें" else "Agree and Continue",
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -257,7 +258,11 @@ fun TestInstructionsScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Detailed Instruction Rules (1 to 6)
-                val instructions = if (safeTest?.instructions?.isNotEmpty() == true) safeTest.instructions else defaultTestInstructions
+                val instructions = if (selectedLanguage == "Hindi") {
+                    if (safeTest?.instructionsHindi?.isNotEmpty() == true) safeTest.instructionsHindi else defaultTestInstructionsHindi
+                } else {
+                    if (safeTest?.instructions?.isNotEmpty() == true) safeTest.instructions else defaultTestInstructions
+                }
 
                 instructions.take(6).forEach { rule ->
                     Row(
@@ -287,7 +292,11 @@ fun TestInstructionsScreen(
                 val declarationText = if (instructions.size >= 7) {
                     instructions[6]
                 } else {
-                    "I have read all the instructions carefully and have understood them. I agree not to cheat or use unfair means in this examination. I understand that using unfair means of any sort for my own or someone else's advantage will lead to my disqualification."
+                    if (selectedLanguage == "Hindi") {
+                        "मैंने सभी निर्देशों को ध्यानपूर्वक पढ़ लिया है और उन्हें समझ लिया है। मैं इस परीक्षा में नकल न करने या अनुचित साधनों का उपयोग न करने की सहमति देता हूँ। मैं समझता/समझती हूँ कि अपने या किसी अन्य के लाभ के लिए किसी भी प्रकार के अनुचित साधनों का उपयोग करने से मुझे अयोग्य घोषित कर दिया जाएगा।"
+                    } else {
+                        "I have read all the instructions carefully and have understood them. I agree not to cheat or use unfair means in this examination. I understand that using unfair means of any sort for my own or someone else's advantage will lead to my disqualification."
+                    }
                 }
 
                 Surface(
@@ -319,7 +328,7 @@ fun TestInstructionsScreen(
 
                         Column {
                             Text(
-                                text = "Declaration",
+                                text = if (selectedLanguage == "Hindi") "घोषणा" else "Declaration",
                                 color = BrandAccentCyan,
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold

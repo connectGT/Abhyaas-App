@@ -8,7 +8,7 @@ object MockUpdatesRepository {
     private val updates = listOf(
         ExamUpdateItem(
             id = "upd_1",
-            title = "MP Nayab Tehsildar Departmental Exam 2026 — Official Notification",
+            title = "MP Nayab Tehsildar Departmental Exam 2026 — Notification Released",
             description = "MPPSC ने नायब तहसीलदार विभागीय परीक्षा 2026 की आधिकारिक अधिसूचना जारी की। कुल 73 पद। आवेदन की अंतिम तारीख जल्द घोषित होगी।",
             date = "28 Sep 2026",
             category = UpdateCategory.NOTIFICATIONS,
@@ -36,16 +36,7 @@ object MockUpdatesRepository {
             pdfSize = "1.2 MB",
             actionText = "Download PDF"
         ),
-        ExamUpdateItem(
-            id = "upd_4",
-            title = "MPSEB Recruitment 2026 — Notification Released",
-            description = "MP State Electricity Board has released recruitment notification for multiple technical and non-technical posts. Check eligibility and apply online.",
-            date = "24 Sep 2026",
-            category = UpdateCategory.NOTIFICATIONS,
-            isPinned = false,
-            pdfSize = "2.1 MB",
-            actionText = "Download PDF"
-        ),
+
         ExamUpdateItem(
             id = "upd_5",
             title = "Nayab Tehsildar 2026 — Admit Card (जल्द आएगा)",

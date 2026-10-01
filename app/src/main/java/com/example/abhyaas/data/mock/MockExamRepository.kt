@@ -82,104 +82,156 @@ object MockExamRepository {
 
     fun getHomeCategories(): List<HomeCategoryItem> = homeCategories
 
-    fun getTestSeriesList(): List<TestSeries> = listOf(tehsildarSeries, mpsebSeries)
+    fun getTestSeriesList(): List<TestSeries> = listOf(
+        TestSeries(
+            id = "ssc_selection_post_2026",
+            title = "SSC Selection Post (Phase 14) 2026 Mock Test Series",
+            subtitle = "600+ Total Tests, 30 Full Tests, 90+ PYQs, Vacancies 3000+",
+            categoryId = "ssc",
+            totalTests = 610,
+            fullTestsCount = 30,
+            pyqCount = 90,
+            attemptedCount = 1,
+            vacancies = "3000+",
+            examDates = "Sep - 2026",
+            isEnrolled = true,
+            mockFolders = listOf(
+                TestSeriesFolder("m1", "Folder 1", "x"), TestSeriesFolder("m2", "Folder 2", "x"),
+                TestSeriesFolder("m3", "Folder 3", "x"), TestSeriesFolder("m4", "Folder 4", "x"),
+                TestSeriesFolder("m5", "Folder 5", "x"), TestSeriesFolder("m6", "Folder 6", "x")
+            ),
+            pypFolders = listOf(
+                TestSeriesFolder("p1", "PYP 1", "x"), TestSeriesFolder("p2", "PYP 2", "x"),
+                TestSeriesFolder("p3", "PYP 3", "x"), TestSeriesFolder("p4", "PYP 4", "x")
+            ),
+            studyNotesFolders = listOf()
+        ),
+        TestSeries(
+            id = "mpesb_nayab_tehsildar_2026",
+            title = "MPESB Nayab Tehsildar & Revenue Inspector 2026",
+            subtitle = "150+ Tests, MP GK, Land Revenue Code special tests",
+            categoryId = "mp_exams",
+            totalTests = 600,
+            fullTestsCount = 30,
+            pyqCount = 90,
+            attemptedCount = 0,
+            vacancies = "450+",
+            examDates = "Nov - 2026",
+            isEnrolled = false,
+            mockFolders = listOf(
+                TestSeriesFolder("m1", "Folder 1", "x"), TestSeriesFolder("m2", "Folder 2", "x"),
+                TestSeriesFolder("m3", "Folder 3", "x")
+            ),
+            pypFolders = listOf(
+                TestSeriesFolder("p1", "PYP 1", "x"), TestSeriesFolder("p2", "PYP 2", "x")
+            ),
+            studyNotesFolders = listOf()
+        )
+    )
 
     fun getTestSeriesById(id: String): TestSeries? {
-        return getTestSeriesList().find { it.id == id } ?: tehsildarSeries
+        return getTestSeriesList().find { it.id == id } ?: getTestSeriesList().first { it.id == "ssc_selection_post_2026" }
     }
 
     fun getTestsForSubCategory(seriesId: String, subCategory: String): List<Test> {
-        val isTehsildar = seriesId == "nayab_tehsildar_2026"
-        val sections = if (isTehsildar)
-            MockQuestionRepository.getTehsildarSections()
-        else
-            MockQuestionRepository.getMpsebSections()
-
-        val isPYQ = subCategory.contains("PYQ", ignoreCase = true)
-        val isGK = subCategory.contains("GK", ignoreCase = true) || subCategory.contains("Gyan", ignoreCase = true)
-        val isRajasva = subCategory.contains("Rajasva", ignoreCase = true)
-
-        val prefix = when {
-            isPYQ -> "Previous Year Paper"
-            isGK -> "GK Sectional Test"
-            isRajasva -> "Rajasva Shabdavali Test"
-            else -> "Full Mock Test"
-        }
-
-        return listOf(
-            Test(
-                id = "${seriesId}_${prefix.replace(" ", "_").lowercase()}_01",
+        val tests = mutableListOf<Test>()
+        val defaultInstructions = listOf("100 questions", "4 options", "60 minutes", "Instruction 4", "2 marks, 0.5 negative", "Instruction 6", "Instruction 7")
+        if (seriesId == "ssc_selection_post_2026" && subCategory == "Exam Day Special") {
+            tests.add(Test(
+                id = "ssc_test_day_01",
                 seriesId = seriesId,
-                title = "$prefix - 01",
+                title = "Practice Test Day - 01",
                 subCategory = subCategory,
-                durationMinutes = if (isGK || isRajasva) 30 else 120, // 200 questions typically takes 120-150 mins
-                totalQuestions = sections.sumOf { it.questions.size }, // Dynamically read the 200 questions
-                totalMarks = (sections.sumOf { it.questions.size } * 2).toFloat(), // 2 marks per Q
+                durationMinutes = 60,
+                totalQuestions = 100,
+                totalMarks = 200.0f,
                 isFree = true,
-                sections = sections,
+                sections = MockQuestionRepository.getSectionsForTest("default"),
+                instructions = defaultInstructions,
+                previousAttempt = TestAttemptSummary(
+                    attemptId = "att_day_01",
+                    score = 0.0f,
+                    maxScore = 200.0f,
+                    rank = 22789,
+                    totalCandidates = 24964,
+                    attemptDate = "Today",
+                    accuracy = 0.0f
+                )
+            ))
+            tests.add(Test(
+                id = "ssc_test_day_02",
+                seriesId = seriesId,
+                title = "Practice Test Day - 02",
+                subCategory = subCategory,
+                durationMinutes = 60,
+                totalQuestions = 100,
+                totalMarks = 200.0f,
+                isFree = true,
+                sections = MockQuestionRepository.getSectionsForTest("default"),
+                instructions = defaultInstructions,
                 previousAttempt = null
-            )
-        )
+            ))
+            tests.add(Test(
+                id = "ssc_test_day_03",
+                seriesId = seriesId,
+                title = "Practice Test Day - 03",
+                subCategory = subCategory,
+                durationMinutes = 60,
+                totalQuestions = 100,
+                totalMarks = 200.0f,
+                isFree = true,
+                sections = MockQuestionRepository.getSectionsForTest("default"),
+                instructions = defaultInstructions,
+                previousAttempt = null
+            ))
+            tests.add(Test(
+                id = "ssc_test_day_04",
+                seriesId = seriesId,
+                title = "Practice Test Day - 04",
+                subCategory = subCategory,
+                durationMinutes = 60,
+                totalQuestions = 100,
+                totalMarks = 200.0f,
+                isFree = true,
+                sections = MockQuestionRepository.getSectionsForTest("default"),
+                instructions = defaultInstructions,
+                previousAttempt = null
+            ))
+        }
+        return tests
     }
 
     fun getTestById(testId: String): Test? {
-        val allTests = getTestSeriesList().flatMap { series ->
-            series.mockFolders.flatMap { folder ->
-                getTestsForSubCategory(series.id, folder.title)
-            }
-        }
-        return allTests.find { it.id == testId }
-            ?: getTestsForSubCategory("nayab_tehsildar_2026", "Paper 1: Full Mock Tests").first()
+        if (testId == "ssc_test_day_01") return getTestsForSubCategory("ssc_selection_post_2026", "Exam Day Special").find { it.id == "ssc_test_day_01" }
+        if (testId == "ssc_test_day_02") return getTestsForSubCategory("ssc_selection_post_2026", "Exam Day Special").find { it.id == "ssc_test_day_02" }
+        return getTestsForSubCategory("ssc_selection_post_2026", "Exam Day Special").find { it.id == "ssc_test_day_02" }
     }
 
     fun getPreviousAttemptResult(testId: String): TestResult {
-        val test = getTestById(testId)
-        val testTitle = test?.title ?: "Full Mock Test - 01"
-        val totalQ = test?.totalQuestions ?: 100
-        val maxScore = test?.totalMarks ?: (totalQ * 2).toFloat()
-        
-        // Let's create a dynamic fallback that makes mathematical sense.
-        // Assume user got exactly 65% correct, 15% incorrect, 20% unattempted.
-        val correctCount = (totalQ * 0.65).toInt()
-        val incorrectCount = (totalQ * 0.15).toInt()
-        val unattemptedCount = totalQ - correctCount - incorrectCount
-        
-        val score = (correctCount * 2f) - (incorrectCount * 0.5f)
-        val rawPercentage = if (maxScore > 0) (score / maxScore) * 100f else 0f
-        
-        val totalCandidates = 24964
-        val computedRank = if (rawPercentage >= 99f) 1 else {
-            val offset = (100f - rawPercentage) / 100f
-            (offset * totalCandidates).toInt().coerceIn(1, totalCandidates)
-        }
-        val computedPercentile = if (totalCandidates > 1) {
-            ((totalCandidates - computedRank).toFloat() / (totalCandidates - 1)) * 100f
-        } else 100f
-        
-        val accuracy = if (correctCount + incorrectCount > 0) (correctCount.toFloat() / (correctCount + incorrectCount)) * 100f else 0f
-        
-        val avgScore = maxScore * 0.45f
-        val bstScore = maxScore * 0.95f
-        
         return TestResult(
-            attemptId = "att_${testId}_01",
-            testId = testId,
-            testTitle = testTitle,
-            score = score,
-            totalMarks = maxScore,
-            rank = computedRank,
-            totalCandidates = totalCandidates,
-            percentile = computedPercentile,
-            accuracy = accuracy,
-            correctCount = correctCount,
-            incorrectCount = incorrectCount,
-            unattemptedCount = unattemptedCount,
-            cutoffMarks = "${(maxScore * 0.66).toInt()}-${(maxScore * 0.68).toInt()}",
-            averageScore = avgScore,
-            bestScore = bstScore,
+            attemptId = "att_day_01",
+            testId = "ssc_test_day_01",
+            score = 0.0f,
+            totalMarks = 200.0f,
+            rank = 22789,
+            totalCandidates = 24964,
+            percentile = 8.72f,
+            accuracy = 0.0f,
+            correctCount = 0,
+            incorrectCount = 0,
+            unattemptedCount = 100,
+            cutoffMarks = "132-135",
+            averageScore = 67.75f,
+            bestScore = 200.0f,
             attemptDate = "Today",
-            sectionBreakdowns = emptyList(), // we can omit this or generate dynamically if needed
-            userAnswers = emptyMap()
+            sectionBreakdowns = listOf(
+                SectionResult("sec_a", "PART - A", 0f, 0, 0, 25, 0, 0f, 0L, 25),
+                SectionResult("sec_b", "PART - B", 0f, 0, 0, 25, 0, 0f, 0L, 25),
+                SectionResult("sec_c", "PART - C", 0f, 0, 0, 25, 0, 0f, 0L, 25),
+                SectionResult("sec_d", "PART - D", 0f, 0, 0, 25, 0, 0f, 0L, 25)
+            ),
+            userAnswers = emptyMap(),
+            testTitle = "Practice Test Day - 01"
         )
     }
 }
