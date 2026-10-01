@@ -11,7 +11,7 @@ import com.example.abhyaas.data.repository.impl.*
 class AbhyaasApplication : Application() {
     val examRepository: ExamRepository by lazy { RemoteExamRepositoryImpl() }
     val questionRepository: QuestionRepository by lazy { RemoteQuestionRepositoryImpl() }
-    val testResultRepository: TestResultRepository by lazy { RemoteTestResultRepositoryImpl() }
+    val testResultRepository: TestResultRepository by lazy { MockTestResultRepositoryImpl() }
     val updatesRepository: UpdatesRepository by lazy { RemoteUpdatesRepositoryImpl() }
     val userRepository: UserRepository by lazy { RemoteUserRepositoryImpl() }
 
