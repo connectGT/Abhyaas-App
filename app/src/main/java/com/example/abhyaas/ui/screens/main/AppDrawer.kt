@@ -174,7 +174,7 @@ fun AppDrawer(
                     label = "Your Exams",
                     icon = Icons.Default.School,
                     isSelected = false,
-                    subtitle = "SSC CGL, Selection Post",
+                    subtitle = "MPSEB, Nayab Tehsildar",
                     onClick = {
                         onCloseDrawer()
                         onNavigateToRoute("tests")

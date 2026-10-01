@@ -295,15 +295,9 @@ private fun SuggestedTestCard(
             // Test Title
             Column {
                 Text(
-                    text = "SSC Selection Post (Phase 14):",
-                    color = Color.White,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
                     text = test.title,
                     color = Color.White,
-                    fontSize = 14.sp,
+                    fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -412,15 +406,9 @@ private fun AttemptedTestCard(
             // Test Title
             Column {
                 Text(
-                    text = "SSC Selection Post (Phase 14):",
-                    color = Color.White,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
                     text = test.title,
                     color = Color.White,
-                    fontSize = 14.sp,
+                    fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
             }

@@ -119,7 +119,7 @@ fun TestsScreen(
                     Spacer(modifier = Modifier.height(10.dp))
 
                     Text(
-                        text = featuredSeries?.title ?: "SSC SELECTION POST 2026",
+                        text = featuredSeries?.title ?: "MP Nayab Tehsildar 2026",
                         color = Color.White,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.ExtraBold,
