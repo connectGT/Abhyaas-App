@@ -118,7 +118,8 @@ fun PdfViewerScreen(
                         webViewClient = WebViewClient()
                         settings.javaScriptEnabled = true
                     settings.domStorageEnabled = true
-                        loadUrl("https://docs.google.com/gview?embedded=true&url=${material.pdfUrl}")
+                        val urlToLoad = if (material.pdfUrl.contains("drive.google.com")) material.pdfUrl else "https://docs.google.com/gview?embedded=true&url=${material.pdfUrl}"
+                        loadUrl(urlToLoad)
                     }
                 },
                 modifier = Modifier.fillMaxSize()
@@ -126,3 +127,4 @@ fun PdfViewerScreen(
         }
     }
 }
+
