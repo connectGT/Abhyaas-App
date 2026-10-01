@@ -132,46 +132,6 @@ fun TestListScreen(
                 .background(AppBackgroundBrush)
                 .padding(innerPadding)
         ) {
-            val activeTabIndex = uiState.selectedSubTabIndex.coerceIn(0, (uiState.subTabs.size - 1).coerceAtLeast(0))
-
-            // Sub-tabs (dynamically driven from ViewModel state)
-            TabRow(
-                selectedTabIndex = activeTabIndex,
-                containerColor = DarkBackgroundGradientStart,
-                contentColor = Color.White,
-                divider = {
-                    HorizontalDivider(color = DarkBorderSubtle, thickness = 1.dp)
-                },
-                indicator = { tabPositions ->
-                    if (activeTabIndex < tabPositions.size) {
-                        Box(
-                            modifier = Modifier
-                                .tabIndicatorOffset(tabPositions[activeTabIndex])
-                                .height(3.dp)
-                                .background(Color.White, RoundedCornerShape(topStart = 3.dp, topEnd = 3.dp))
-                        )
-                    }
-                }
-            ) {
-                uiState.subTabs.forEachIndexed { index, title ->
-                    val isSelected = activeTabIndex == index
-                    Tab(
-                        selected = isSelected,
-                        onClick = { viewModel.selectSubTab(index) },
-                        text = {
-                            Text(
-                                text = title,
-                                fontSize = 14.sp,
-                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
-                                color = if (isSelected) Color.White else TextSecondaryDark,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    )
-                }
-            }
-
             Column(
                 modifier = Modifier
                     .fillMaxSize()
