@@ -49,6 +49,14 @@ sealed class Screen(
 
     // Policy & Legal Routes
     object PrivacyPolicy : Screen("privacy_policy")
+    
+    // Study Materials Routes
+    object StudyMaterialList : Screen("study_material_list/{seriesId}") {
+        fun createRoute(seriesId: String) = "study_material_list/$seriesId"
+    }
+    object PdfViewer : Screen("pdf_viewer/{materialId}/{seriesId}") {
+        fun createRoute(materialId: String, seriesId: String) = "pdf_viewer/$materialId/$seriesId"
+    }
 }
 
 data class BottomNavItem(

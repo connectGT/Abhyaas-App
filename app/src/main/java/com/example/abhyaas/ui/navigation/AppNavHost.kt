@@ -125,6 +125,8 @@ fun AppNavHost(
                 onFolderClick = { sId, subCategory ->
                     if (subCategory == "empty_state") {
                         navController.navigate("empty_state")
+                    } else if (subCategory == "study_notes") {
+                        navController.navigate(Screen.StudyMaterialList.createRoute(sId))
                     } else {
                         navController.navigate(Screen.TestList.createRoute(sId, subCategory))
                     }
@@ -142,6 +144,40 @@ fun AppNavHost(
         }
         composable("empty_state") {
             EmptyStateScreen(
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+        
+        // Study Materials Routes
+        composable(
+            route = Screen.StudyMaterialList.route,
+            arguments = listOf(navArgument("seriesId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val seriesId = backStackEntry.arguments?.getString("seriesId") ?: ""
+            com.example.abhyaas.ui.screens.study.StudyMaterialListScreen(
+                seriesId = seriesId,
+                onBackClick = { navController.popBackStack() },
+                onMaterialClick = { materialId, sId ->
+                    navController.navigate(Screen.PdfViewer.createRoute(materialId, sId))
+                },
+                onUnlockClick = {
+                    navController.navigate(Screen.Pass.route)
+                }
+            )
+        }
+        
+        composable(
+            route = Screen.PdfViewer.route,
+            arguments = listOf(
+                navArgument("materialId") { type = NavType.StringType },
+                navArgument("seriesId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val materialId = backStackEntry.arguments?.getString("materialId") ?: ""
+            val seriesId = backStackEntry.arguments?.getString("seriesId") ?: ""
+            com.example.abhyaas.ui.screens.study.PdfViewerScreen(
+                materialId = materialId,
+                seriesId = seriesId,
                 onBackClick = { navController.popBackStack() }
             )
         }

@@ -448,7 +448,7 @@ fun TestSeriesDetailScreen(
                         folder = folder,
                         onClick = { 
                             if (selectedTabIndex == 2) {
-                                onFolderClick(series.id, "empty_state")
+                                onFolderClick(series.id, "study_notes")
                             } else {
                                 onFolderClick(series.id, folder.title)
                             }
