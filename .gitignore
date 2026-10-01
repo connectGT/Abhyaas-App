@@ -1,3 +1,4 @@
+# Android
 *.iml
 .gradle
 /local.properties
@@ -13,3 +14,35 @@
 .externalNativeBuild
 .cxx
 local.properties
+keystore.jks
+*.keystore
+*.jks
+release/
+
+# Firebase - NEVER commit real credentials
+# app/google-services.json  <-- only placeholder is allowed
+# If you replace with real file, add it to gitignore!
+
+# Python / Backend
+__pycache__/
+*.pyc
+*.pyo
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+abhyaas_local.db
+backend/abhyaas_local.db
+
+# Patch scripts (temp)
+patch_*.py
+fetch_*.py
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
