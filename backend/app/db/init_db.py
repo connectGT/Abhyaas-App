@@ -32,6 +32,7 @@ def init_db():
                 folder_type="MOCK"
             )
             db.add(folder)
+            db.flush()
             
             test = Test(
                 id="nayab_tehsildar_2026_full_mock_test_01",
