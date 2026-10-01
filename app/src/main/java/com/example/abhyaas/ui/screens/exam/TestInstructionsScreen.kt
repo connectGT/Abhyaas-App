@@ -35,8 +35,8 @@ import com.example.abhyaas.ui.theme.*
 fun TestInstructionsScreen(
     testId: String = "nayab_tehsildar_2026_mock_01",
     onBackClick: () -> Unit = {},
-    onAgreeAndContinue: (testId: String, lang: String) -> Unit = { _, _ -> },
-    onGetPassClick: () -> Unit = {}
+    onAgreeAndContinue: (testId: String, lang: String) -> Unit = { _, _ -> }
+    
 ) {
     val examRepository = remember { AbhyaasApplication.instance.examRepository }
     var test by remember { mutableStateOf<Test?>(null) }
@@ -65,7 +65,7 @@ fun TestInstructionsScreen(
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
+                    IconButton(onClick = {},) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
@@ -195,7 +195,7 @@ fun TestInstructionsScreen(
                     }
 
                     Button(
-                        onClick = onGetPassClick,
+                        onClick = {},
                         shape = RoundedCornerShape(6.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = CtaGreen,

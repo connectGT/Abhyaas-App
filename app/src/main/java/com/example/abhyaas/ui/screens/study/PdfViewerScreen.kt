@@ -117,6 +117,7 @@ fun PdfViewerScreen(
                     WebView(ctx).apply {
                         webViewClient = WebViewClient()
                         settings.javaScriptEnabled = true
+                    settings.domStorageEnabled = true
                         loadUrl("https://docs.google.com/gview?embedded=true&url=${material.pdfUrl}")
                     }
                 },

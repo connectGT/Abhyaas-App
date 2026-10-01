@@ -23,7 +23,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.abhyaas.ui.navigation.Screen
 import com.example.abhyaas.ui.navigation.bottomNavItems
 import com.example.abhyaas.ui.screens.home.HomeScreen
-import com.example.abhyaas.ui.screens.pass.PassScreen
 import com.example.abhyaas.ui.screens.tests.TestsScreen
 import com.example.abhyaas.ui.screens.updates.UpdatesScreen
 import com.example.abhyaas.ui.theme.*
@@ -131,13 +130,7 @@ fun MainScreen(
                         HomeScreen(
                             onMenuClick = { scope.launch { drawerState.open() } },
                             onAvatarClick = onNavigateToProfile,
-                            onPassClick = {
-                                bottomNavController.navigate(Screen.Pass.route) {
-                                    popUpTo(bottomNavController.graph.findStartDestination().id) { saveState = true }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            },
+                            
                             onSearchClick = {
                                 bottomNavController.navigate("empty_state")
                             },
@@ -162,15 +155,7 @@ fun MainScreen(
                             onTestSeriesClick = onNavigateToTestSeries
                         )
                     }
-                    composable(Screen.Pass.route) {
-                        PassScreen(
-                            onMenuClick = { scope.launch { drawerState.open() } },
-                            onAvatarClick = onNavigateToProfile,
-                            onGetPassSuccess = {
-                                onNavigateToTestSeries("nayab_tehsildar_2026")
-                            }
-                        )
-                    }
+                    
                     composable(Screen.Updates.route) {
                         UpdatesScreen(
                             onMenuClick = { scope.launch { drawerState.open() } },

@@ -46,7 +46,7 @@ fun TestSeriesDetailScreen(
     seriesId: String = "nayab_tehsildar_2026",
     onBackClick: () -> Unit = {},
     onFolderClick: (seriesId: String, subCategory: String) -> Unit = { _, _ -> },
-    onUnlockClick: () -> Unit = {},
+    
     onAnnouncementClick: () -> Unit = {},
     viewModel: TestSeriesDetailViewModel = viewModel()
 ) {
@@ -128,7 +128,7 @@ fun TestSeriesDetailScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
+                    IconButton(onClick = {},) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
@@ -137,7 +137,7 @@ fun TestSeriesDetailScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = onAnnouncementClick) {
+                    IconButton(onClick = {},) {
                         Icon(
                             imageVector = Icons.Default.Campaign,
                             contentDescription = "Announcements",
@@ -170,7 +170,7 @@ fun TestSeriesDetailScreen(
                     .padding(horizontal = 16.dp, vertical = 12.dp)
             ) {
                 Button(
-                    onClick = onUnlockClick,
+                    onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(50.dp),

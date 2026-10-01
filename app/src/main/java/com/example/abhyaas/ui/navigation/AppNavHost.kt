@@ -31,7 +31,6 @@ import com.example.abhyaas.ui.screens.result.TestResultScreen
 import com.example.abhyaas.ui.screens.tests.TestListScreen
 import com.example.abhyaas.ui.screens.tests.TestSeriesDetailScreen
 import com.example.abhyaas.ui.screens.main.EmptyStateScreen
-import com.example.abhyaas.ui.screens.pass.PassScreen
 import com.example.abhyaas.ui.theme.*
 
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -130,18 +129,12 @@ fun AppNavHost(
                     } else {
                         navController.navigate(Screen.TestList.createRoute(sId, subCategory))
                     }
-                },
-                onUnlockClick = {
-                    navController.navigate(Screen.Pass.route)
                 }
             )
         }
 
 
         // Extra routes for Pass and Empty State from outside BottomNav
-        composable(Screen.Pass.route) {
-            PassScreen()
-        }
         composable("empty_state") {
             EmptyStateScreen(
                 onBackClick = { navController.popBackStack() }
@@ -157,11 +150,9 @@ fun AppNavHost(
             com.example.abhyaas.ui.screens.study.StudyMaterialListScreen(
                 seriesId = seriesId,
                 onBackClick = { navController.popBackStack() },
+                onUnlockClick = {},
                 onMaterialClick = { materialId, sId ->
                     navController.navigate(Screen.PdfViewer.createRoute(materialId, sId))
-                },
-                onUnlockClick = {
-                    navController.navigate(Screen.Pass.route)
                 }
             )
         }
@@ -201,9 +192,6 @@ fun AppNavHost(
                 },
                 onViewResultClick = { testId ->
                     navController.navigate(Screen.TestResult.createRoute(testId))
-                },
-                onUnlockClick = {
-                    navController.navigate(Screen.Pass.route)
                 }
             )
         }
@@ -219,9 +207,6 @@ fun AppNavHost(
                 onBackClick = { navController.popBackStack() },
                 onAgreeAndContinue = { tId, lang ->
                     navController.navigate(Screen.ActiveTest.createRoute(tId, lang))
-                },
-                onGetPassClick = {
-                    navController.navigate(Screen.Pass.route)
                 }
             )
         }

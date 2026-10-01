@@ -36,7 +36,7 @@ import com.example.abhyaas.ui.viewmodel.HomeViewModel
 fun HomeScreen(
     onMenuClick: () -> Unit = {},
     onAvatarClick: () -> Unit = {},
-    onPassClick: () -> Unit = {},
+    
     onCategoryClick: (String) -> Unit = {},
     onSearchClick: () -> Unit = {},
     viewModel: HomeViewModel = viewModel()
@@ -156,7 +156,7 @@ fun HomeScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         TextButton(
-                            onClick = onPassClick,
+                            onClick = {},
                             contentPadding = PaddingValues(0.dp)
                         ) {
                             Text(
@@ -168,7 +168,7 @@ fun HomeScreen(
                         }
 
                         Button(
-                            onClick = onPassClick,
+                            onClick = {},
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = CtaGreen,
                                 contentColor = Color.White

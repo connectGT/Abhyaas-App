@@ -45,7 +45,7 @@ fun TestListScreen(
     onBackClick: () -> Unit = {},
     onStartTestClick: (testId: String) -> Unit = {},
     onViewResultClick: (testId: String) -> Unit = {},
-    onUnlockClick: () -> Unit = {},
+    
     onShareClick: (testTitle: String) -> Unit = {},
     viewModel: TestListViewModel = viewModel()
 ) {
@@ -84,7 +84,7 @@ fun TestListScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
+                    IconButton(onClick = {},) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
@@ -106,7 +106,7 @@ fun TestListScreen(
                     .padding(horizontal = 16.dp, vertical = 12.dp)
             ) {
                 Button(
-                    onClick = onUnlockClick,
+                    onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(50.dp),
@@ -276,7 +276,7 @@ private fun SuggestedTestCard(
                 )
 
                 Button(
-                    onClick = onStartTestClick,
+                    onClick = {},
                     shape = RoundedCornerShape(6.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = BrandPrimary,
@@ -307,7 +307,7 @@ private fun SuggestedTestCard(
                 )
 
                 Row(
-                    modifier = Modifier.clickable(onClick = onShareClick),
+                    modifier = Modifier.clickable(onClick = {},),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
@@ -415,7 +415,7 @@ private fun AttemptedTestCard(
 
             // Outlined "View Results" Button
             OutlinedButton(
-                onClick = onViewResultClick,
+                onClick = {},
                 shape = RoundedCornerShape(8.dp),
                 border = androidx.compose.foundation.BorderStroke(1.dp, BrandPrimary),
                 colors = ButtonDefaults.outlinedButtonColors(
@@ -445,7 +445,7 @@ private fun AttemptedTestCard(
                 )
 
                 Row(
-                    modifier = Modifier.clickable(onClick = onShareClick),
+                    modifier = Modifier.clickable(onClick = {},),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
