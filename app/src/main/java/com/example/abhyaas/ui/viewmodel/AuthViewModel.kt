@@ -72,8 +72,8 @@ class AuthViewModel : ViewModel() {
     // Google Sign-In Auth
     // ==========================================
     fun getGoogleSignInIntent(context: Context): Intent {
-        // TODO: Replace with actual Web Client ID from google-services.json when Google Sign-in is enabled
-        val serverClientId = "YOUR_WEB_CLIENT_ID"
+        // Web Client ID from google-services.json (client_type: 3)
+        val serverClientId = "334361444733-80luu51rq4m0lku0chcfg78q230je8h2.apps.googleusercontent.com"
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(serverClientId)
             .requestEmail()
