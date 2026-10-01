@@ -11,7 +11,9 @@ class Settings(BaseSettings):
     def SQLALCHEMY_DATABASE_URI(self) -> str:
         url = os.environ.get('DATABASE_URL', '')
         if url.startswith('postgres://'):
-            url = url.replace('postgres://', 'postgresql://', 1)
+            url = url.replace('postgres://', 'postgresql+psycopg2://', 1)
+        elif url.startswith('postgresql://'):
+            url = url.replace('postgresql://', 'postgresql+psycopg2://', 1)
         return url or 'sqlite:///./abhyaas_local.db'
 
     class Config:
