@@ -18,7 +18,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://api.abhyaas.app/v1/\"")
+        buildConfigField("String", "BASE_URL", "\"https://abhyaas-api-backend-3f103ddf81d6.herokuapp.com/api/v1/\"")
     }
 
     buildTypes {
